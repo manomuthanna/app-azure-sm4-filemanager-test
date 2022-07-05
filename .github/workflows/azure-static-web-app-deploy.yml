@@ -16,13 +16,13 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      #- master
-      - COPS-1857-cicd-poc # TODO after testing, enable master and delete this
+      - master
+      #- COPS-1857-cicd-poc # TODO after testing, enable master and delete this
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      #- master
-      - COPS-1857-cicd-poc # TODO after testing, enable master and delete this
+      - master
+      #- COPS-1857-cicd-poc # TODO after testing, enable master and delete this
 
 # Environment variables available to all jobs and steps in this workflow
 env:
