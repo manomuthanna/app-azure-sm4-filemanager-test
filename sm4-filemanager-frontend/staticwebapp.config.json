@@ -3,33 +3,50 @@
     "identityProviders": {
       "azureActiveDirectory": {
         "registration": {
-          "openIdIssuer": "https://login.microsoftonline.com/f8407946-d2c1-4fcc-ae95-63723ace3665/v2.0",
+          "openIdIssuer": "https://login.microsoftonline.com/4af290c8-08df-440d-93db-cbac02bd9b19/v2.0",
           "clientIdSettingName": "406cf3cd-9c44-4b78-9de4-52f48eea8fb1",
           "clientSecretSettingName": "Cwv8Q~3gq-6UAhsRtjQHs5W5Mh4gBQRkgQEqTb9P"
         }
       }
     }
   },
-
   "navigationFallback": {
     "rewrite": "index.html"
   },
-  
   "routes": [
-	
     {
       "route": "/login",
       "rewrite": "/.auth/login/aad",
       "allowedRoles": ["anonymous", "authenticated"]
-    },  
+    },
     {
-      "route": "/api/*",
-      "allowedRoles": ["authenticated"]
+      "route": "/.auth/login/github",
+      "statusCode": 404
+    },
+    {
+      "route": "/.auth/login/twitter",
+      "statusCode": 404
     },
     {
       "route": "/logout",
       "redirect": "/.auth/logout",
       "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
     }
-  ]
+  ],
+  "responseOverrides": {
+    "401": {
+      "redirect": "/login",
+      "statusCode": 302
+    }
+  },
+  "globalHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+  },
+  "mimeTypes": {
+    ".json": "text/json"
+  }
 }
