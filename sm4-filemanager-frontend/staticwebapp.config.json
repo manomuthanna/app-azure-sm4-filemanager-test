@@ -34,7 +34,7 @@
     },
     {
       "route": "/api*",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": ["apiuser"]
     }
   ],
   "responseOverrides": {
