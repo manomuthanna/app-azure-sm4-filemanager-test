@@ -11,7 +11,7 @@
     }
   },
   "navigationFallback": {
-    "rewrite": "index.html"
+    "rewrite": 404
   },
   "routes": [
     {
@@ -33,7 +33,7 @@
       "allowedRoles": ["anonymous", "authenticated"]
     },
     {
-      "route": "/*",
+      "route": "/api*",
       "allowedRoles": ["authenticated"]
     }
   ],
