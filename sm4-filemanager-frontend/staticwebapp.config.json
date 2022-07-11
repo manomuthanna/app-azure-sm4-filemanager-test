@@ -16,7 +16,7 @@
   "routes": [
     {
       "route": "/login",
-      "rewrite": "/.auth/login/aad/callback",
+      "rewrite": "/.auth/login/aad",
       "allowedRoles": ["anonymous", "authenticated"]
     },
     {
