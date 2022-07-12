@@ -42,9 +42,9 @@
     {
       "route": "/api/GetRoles/*",
       "allowedRoles": ["anonymous", "authenticated"]
-    }
+    },
     {
-      "route": "/api/list-files/*",
+      "route": "/api/*",
       "allowedRoles": ["admin"]
     }
   ],
