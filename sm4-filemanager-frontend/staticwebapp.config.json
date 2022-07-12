@@ -44,7 +44,7 @@
       "allowedRoles": ["anonymous", "authenticated"]
     }
     {
-      "route": "/api/*",
+      "route": "/api/list-files/*",
       "allowedRoles": ["admin"]
     }
   ],
