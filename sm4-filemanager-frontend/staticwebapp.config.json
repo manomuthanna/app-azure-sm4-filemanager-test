@@ -25,6 +25,7 @@
       "route": "/api/*",
       "allowedRoles": ["admin"]
     },
+	{
 	 "route": "/api/list-files",
       "rewrite": "/listFilesAPI",
     }
