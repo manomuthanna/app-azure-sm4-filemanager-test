@@ -1,4 +1,16 @@
 { 
+   "routes": [    
+   
+    {
+      "route": "/api/GetRoles/*",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
+      "route": "/api/*",
+      "allowedRoles": ["admin"]
+    }
+  ],
+  
   "auth": {
     "rolesSource": "/api/GetRoles",
     "identityProviders": {
@@ -19,40 +31,6 @@
   },
   "navigationFallback": {
     "rewrite": "index.html"
-  },
-  "routes": [    
-    {
-      "route": "/login",
-      "rewrite": "/.auth/login/aad",
-      "allowedRoles": ["anonymous", "authenticated"]
-    },
-    {
-      "route": "/.auth/login/github",
-      "statusCode": 404
-    },
-    {
-      "route": "/.auth/login/twitter",
-      "statusCode": 404
-    },
-    {
-      "route": "/logout",
-      "redirect": "/.auth/logout",
-      "allowedRoles": ["anonymous", "authenticated"]
-    },
-    {
-      "route": "/api/GetRoles/*",
-      "allowedRoles": ["anonymous", "authenticated"]
-    },
-    {
-      "route": "/api/*",
-      "allowedRoles": ["admin"]
-    }
-  ],
-  "responseOverrides": {
-    "401": {
-      "redirect": "/login",
-      "statusCode": 302
-    }
   },
   "globalHeaders": {
     "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
