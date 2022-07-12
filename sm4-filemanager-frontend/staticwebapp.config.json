@@ -30,7 +30,7 @@
 	{
 	 "route": "/api/postFilesAPI",
       "rewrite": "/api/post-files",
-	  "allowedRoles": ["admin"]
+	  "allowedRoles": ["anonymous", "authenticated"]
     }
   ],
   "responseOverrides": {
