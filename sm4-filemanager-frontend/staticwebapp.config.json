@@ -21,13 +21,16 @@
       "redirect": "/.auth/logout",
       "allowedRoles": ["anonymous", "authenticated"]
     },
-    {
-      "route": "/api/*",
-      "allowedRoles": ["admin"]
+	{
+	 "route": "/listFilesAPI",
+      "rewrite": "/api/list-files",
+	  "allowedRoles": ["admin"]
+	  
     },
 	{
-	 "route": "/api/list-files",
-      "rewrite": "/listFilesAPI",
+	 "route": "/api/postFilesAPI",
+      "rewrite": "/api/post-files",
+	  "allowedRoles": ["admin"]
     }
   ],
   "responseOverrides": {
