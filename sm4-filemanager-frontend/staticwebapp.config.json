@@ -1,46 +1,38 @@
 { 
+   "routes": [      
+    {
+      "route": "/api/GetRoles/*",
+      "allowedRoles": ["anonymous", "authenticated"]
+    },
+    {
+      "route": "/*",
+      "allowedRoles": ["admin"]
+    }
+  ],
+  
+  "auth": {
+    "rolesSource": "/api/GetRoles",
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/f8407946-d2c1-4fcc-ae95-63723ace3665",
+          "clientIdSettingName": "96bc51af-a1f2-4694-9536-54fdeabea85b",
+          "clientSecretSettingName": "-kQ8Q~fAfhqqCrmUKQm3OmmnTBekYB9mzLAX5bYL"
+        },
+        "login": {
+        "loginParameters": [
+          "resource=https://graph.microsoft.com"
+        ]
+        }
+      }
+    }
+  },
   "navigationFallback": {
     "rewrite": "index.html"
   },
-  "routes": [    
-    {
-      "route": "/login",
-      "rewrite": "/.auth/login/aad",
-      "allowedRoles": ["anonymous", "authenticated"]
-    },
-    {
-      "route": "/.auth/login/github",
-      "statusCode": 404
-    },
-    {
-      "route": "/.auth/login/twitter",
-      "statusCode": 404
-    },
-    {
-      "route": "/logout",
-      "redirect": "/.auth/logout",
-      "allowedRoles": ["anonymous", "authenticated"]
-    },
-	{
-	 "route": "/listFilesAPI",
-      "rewrite": "/api/list-files",
-	  "allowedRoles": ["admin"]
-	  
-    },
-	{
-	 "route": "/postFilesAPI",
-      "rewrite": "/api/post-files",
-	  "allowedRoles": ["authenticated"]
-    }
-  ],
-  "responseOverrides": {
-    "401": {
-      "redirect": "/login",
-      "statusCode": 302
-    }
-  },
   "globalHeaders": {
-    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+   "Cache-Control": "no-cache"
   }
  
 }
