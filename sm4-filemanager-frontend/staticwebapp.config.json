@@ -33,7 +33,7 @@
       "allowedRoles": ["anonymous", "authenticated"]
     },
     {
-      "route": "/api*",
+      "route": "/api/*",
       "allowedRoles": ["authenticated"]
     }
   ],
