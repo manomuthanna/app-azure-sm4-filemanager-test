@@ -33,7 +33,7 @@
     "rewrite": "index.html"
   },
   "globalHeaders": {
-    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+   "Cache-Control": "no-cache"
   }
  
 }
