@@ -1,5 +1,5 @@
 { 
-  "auth": {"auth": {
+  "auth": {
     "rolesSource": "/api/GetRoles",
     "identityProviders": {
       "azureActiveDirectory": {
