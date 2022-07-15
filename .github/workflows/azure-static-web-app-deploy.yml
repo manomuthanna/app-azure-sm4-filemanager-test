@@ -40,7 +40,7 @@ jobs:
           pull-requests: write # for Azure/static-web-apps-deploy to comment on PRs
         if: endswith(github.ref, 'master') && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed'))
         runs-on: ubuntu-latest
-        environment: dev
+        environment: test
         name: Build and deploy job for test environment
         strategy:
           matrix:
@@ -98,7 +98,7 @@ jobs:
         needs: build_and_deploy_job_test    
         if: success() && endswith(github.ref, 'master') && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed'))
         runs-on: ubuntu-latest
-        environment: test
+        environment: dev
         name: Build and deploy job for production environment
         strategy:
           matrix:
